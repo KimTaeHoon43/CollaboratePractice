@@ -14,7 +14,7 @@ public class MsgController {
 
 	@RequestMapping("msg")
 	public String toMsg() {
-		System.out.println("쪽지보내기"));
+		System.out.println("쪽지보내기");
 		return "/";
 	}
 	
