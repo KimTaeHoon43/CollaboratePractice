@@ -50,7 +50,7 @@
     }
     .choose_info{overflow-x: hidden;overflow-y:auto;}
     .search_input{
-	    color: white;
+	    color: black;
 	    border: 0;
 	    outline: 0;
 	    background: none;
@@ -208,6 +208,22 @@
 	    };
 		// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 		var map = new kakao.maps.Map(mapContainer, mapOption); 
+		
+		// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+		var zoomControl = new kakao.maps.ZoomControl();
+		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+		// 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
+		/* kakao.maps.event.addListener(map, 'zoom_changed', function() {        
+		    
+		    // 지도의 현재 레벨을 얻어옵니다
+		    var level = map.getLevel();
+		    
+		    var message = '지도를 확대해주세요.';
+		    var resultDiv = document.getElementById('result');  
+		    resultDiv.innerHTML = message;
+		    
+		}); */
 	})
 </script>
 </head>
