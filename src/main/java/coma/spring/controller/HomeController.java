@@ -13,5 +13,9 @@ public class HomeController {
 		// 와우와우와우와우~~~~~~~ 저는 오늘 차돌순두부를 먹을겁니다 지은씨가추천한 차돌순두부~~~~
 		return "home";
 	}
+	@RequestMapping("msg")
+	public String msg() {
+		return "msg";
+	}
 	
 }
