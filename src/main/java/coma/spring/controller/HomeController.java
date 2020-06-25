@@ -13,5 +13,9 @@ public class HomeController {
 		
 		return "home";
 	}
+	@RequestMapping("msg")
+	public String msg() {
+		return "msg";
+	}
 	
 }
