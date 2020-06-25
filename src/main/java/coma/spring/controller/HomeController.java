@@ -10,7 +10,8 @@ public class HomeController {
 	@RequestMapping("/")
 	public String home() {
 
-		// ¿Í¿ì¿Í¿ì¿Í¿ì¿Í¿ì~~~~~~~ Àú´Â ¿À´Ã Â÷µ¹¼øµÎºÎ¸¦ ¸ÔÀ»°Ì´Ï´Ù ÁöÀº¾¾°¡ÃßÃµÇÑ Â÷µ¹¼øµÎºÎ~~~~
+		// ìˆ˜ì •í•˜ì˜€ìŠµë‹ˆë‹¤ ê³¼ì—° UTF-8 ê°€ëŠ¥í• ê¹Œìš”??
+	//ìœ¼ì•„ìœ¼ì•„ìœ¼ã…ìœ¼ã…
 		return "home";
 	}
 	@RequestMapping("msg")
