@@ -199,6 +199,8 @@
     .review_comment i:hover{color:black;}
     .review_comment input[type=submit]{position:absolute;right:10px;bottom:30px;float:left;}
     .map_add{width:50px;height:50px;background-color:white;border-radius:50px;z-index:25;position:fixed;bottom:10px;right:10px;color:#ff9900;line-height:50px;}
+    .food{width:50px;height:50px;background-color:white;border-radius:50px;z-index:25;position:fixed;bottom:70px;right:10px;color:#ff9900;line-height:50px;}
+    .cafe{width:50px;height:50px;background-color:white;border-radius:50px;z-index:25;position:fixed;bottom:130px;right:10px;color:#ff9900;line-height:50px;}
     .map_wrap {position:relative;width:100%;height:350px;}
     span.title {font-weight:bold;display:block;}
     .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
@@ -264,10 +266,11 @@
 		        }   
 		    });
 		});
-
 		// 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
 		kakao.maps.event.addListener(map, 'idle', function() {
 		    searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+		    $("#centerLat").text(map.getCenter().getLat());
+		    $("#centerLng").text(map.getCenter().getLng());
 		});
 
 		function searchAddrFromCoords(coords, callback) {
@@ -300,11 +303,26 @@
 			$(".modal-body .road_address").html(selectedRoad);
 			$(".modal-body .address").html(selectedAddress);
 		})
+		$(".food").on("click",function(){
+        	$.ajax({
+        		url:"/map/food",
+        		type:"get",
+        		data:{
+        			lat:$("#centerLat").text(),
+        			lng:$("#centerLng").text()},
+        		dataType:"JSON",
+        		contentType :"application/json;charset=UTF-8"
+        	}).done(function(resp){
+        		
+        	})
+		})
 	})
 </script>
 </head>
 <body>
 	<!-- 지도를 표시할 div 입니다 -->
+	<div style="display:none;" id="centerLat"></div>
+	<div style="display:none;" id="centerLng"></div>
 	<div class="container-fluid">
 		<div id="header">헤더입니다.</div>
 		<div id="sideBar">
@@ -417,6 +435,8 @@
 			</div>
 		</div>
 		<div id="map"></div>
+		<div class="food text-center"><i class="fas fa-hamburger"></i></div>
+		<div class="cafe text-center"><i class="fas fa-coffee"></i></div>
 		<div class="map_add text-center" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i></div>
 		<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
