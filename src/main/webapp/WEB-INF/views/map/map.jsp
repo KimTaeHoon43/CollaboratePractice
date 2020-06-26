@@ -310,10 +310,12 @@
         		data:{
         			lat:$("#centerLat").text(),
         			lng:$("#centerLng").text()},
-        		dataType:"JSON",
-        		contentType :"application/json;charset=UTF-8"
+        		dataType:"JSON"
         	}).done(function(resp){
-        		
+        		console.log(resp.document);
+        	}).fail(function(error1,error2){
+        		console.log(error1);
+        		console.log(error2);
         	})
 		})
 	})
