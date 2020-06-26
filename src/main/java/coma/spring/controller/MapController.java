@@ -28,13 +28,14 @@ public class MapController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="food",produces="application/json;charset=UTF-8",method=RequestMethod.GET)
+	@RequestMapping(value="food",produces="application/json;charset=utf8",method=RequestMethod.GET)
 	public String getFood(String lng, String lat) throws Exception{
 		final String APPKEY = "e156322dd35cfd9dc276f1365621ae9a";
-		final String API_URL = "https://dapi.kakao.com/v2/local/search/category.json?category\\_group\\_code=FD6&radius=20000&";
+		final String API_URL = "https://dapi.kakao.com/v2/local/search/category.json?category\\_group\\_code=FD6&radius=20000";
 		HttpHeaders headers = new HttpHeaders();
 //		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 		headers.add("Authorization", "KakaoAK " + APPKEY);
+		headers.set("Content-Type", "application/json");
 		MultiValueMap<String, String> parameters = new LinkedMultiValueMap<>();
 		parameters.add("x", lng);
 		parameters.add("y", lat);
@@ -42,6 +43,7 @@ public class MapController {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<String> result = restTemplate.exchange(API_URL, HttpMethod.GET, new HttpEntity(headers), String.class);
+		restTemplate.setErrorHandler(new MyErrorHandler());
 		
 		System.out.println(result.getBody());
 		JsonElement element = JsonParser.parseString(result.getBody());
