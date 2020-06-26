@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+  *{
+                box-sizing: border-box;
+            }
+            .header-wrap > div{
+                position: relative;
+            }
+            .navibar{
+                /*font-size: 14pt;*/
+                font-family: 'Noto Sans KR', sans-serif;
+            }
+
+            .slide-area{
+                /*height:700px;*/
+            }
+            .slide-area img{
+                /*height:600px;*/
+            }
+
+            .footer{
+                height:200px;
+                background-color: #274555;
+                color:#fdc23e;
+                font-size: 9pt;
+                font-family: 'Noto Sans KR', sans-serif;
+                text-align: center;
+                position: absolute;
+
+            }
+
+            .main-login{
+                font-size:9pt;
+                font-family: 'Noto Sans KR', sans-serif;
+            }
+
+            .header-wrap{
+
+            }
+            .carousel-caption{
+                top:60%;
+            }
+
+            .carousel-indicators{
+                top:80%;
+            }
+
+            .carousel-caption > h1 {
+                font-family: 'Black Han Sans', sans-serif;
+                background-color: rgba( 0, 0, 0, 0.5 );
+
+            }
+            .index-copyright{
+                color:#ff7761;
+            }
+            
+            .logo-image > img{
+                width:100%;
+            }
+
+            $('.carousel').carousel({
+                interval: 2000
+            })

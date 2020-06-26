@@ -10,8 +10,13 @@ public class HomeController {
 	@RequestMapping("/")
 	public String home() {
 
-		
+		// 수정하였습니다 과연 UTF-8 가능할까요??
+	//으아으아으ㅏ으ㅏ
 		return "home";
+	}
+	@RequestMapping("msg")
+	public String msg() {
+		return "msg";
 	}
 	
 }
